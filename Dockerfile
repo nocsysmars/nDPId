@@ -1,7 +1,7 @@
 FROM ubuntu:22.10 as builder
 
 WORKDIR /root
-RUN apt-get -y update && apt-get install -y git cmake pkg-config libpcap-dev autoconf libtool
+RUN apt-get -y update && apt-get install -y git cmake pkg-config libpcap autoconf libtool
 
 RUN git clone https://github.com/utoni/nDPId.git
 #for dev, uncomment below
