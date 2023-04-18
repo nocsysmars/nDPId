@@ -1,7 +1,10 @@
 FROM ubuntu:22.10 as builder
 
+ENV TZ=Asia/Dubai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 WORKDIR /root
-RUN apt-get -y update && apt-get install -y git cmake pkg-config libpcap-dev autoconf libtool
+RUN apt-get -y update && apt-get install -y git cmake pkg-config libpcap-dev autoconf libtool libglib2.0 librdkafka-dev tzdata
 
 RUN git clone https://github.com/nocsysmars/nDPId.git
 #for dev, uncomment below
